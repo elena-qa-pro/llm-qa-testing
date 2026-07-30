@@ -1,5 +1,5 @@
 from deepeval.test_case import LLMTestCase
-from deepeval.metrics import ContextualRelevancyMetric, FaithfulnessMetric
+from deepeval.metrics import ContextualRelevancyMetric, FaithfulnessMetric, AnswerRelevancyMetric
 
 
 def test_return_policy_context():
@@ -55,6 +55,21 @@ def test_hallucinated_return_policy():
     )
 
     metric = FaithfulnessMetric(
+        threshold=0.7,
+        model="gpt-4.1"
+    )
+
+    metric.measure(test_case)
+
+    assert metric.score < 0.7
+
+def test_irrelevant_answer():
+    test_case = LLMTestCase(
+        input="How long does shipping take?",
+        actual_output="Customers can return shoes within 30 days for a full refund."
+    )
+
+    metric = AnswerRelevancyMetric(
         threshold=0.7,
         model="gpt-4.1"
     )
