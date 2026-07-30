@@ -12,10 +12,14 @@ def test_return_policy_context():
     )
 
     metric = ContextualRelevancyMetric(
-        threshold=0.7
+        threshold=0.7,
+        include_reason=True,
+        verbose_mode=True
     )
 
     metric.measure(test_case)
+    print("Score:", metric.score)
+    print("Reason:", metric.reason)
 
     assert metric.score >= 0.7
 
