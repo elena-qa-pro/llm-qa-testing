@@ -13,6 +13,7 @@ def test_return_policy_context():
 
     metric = ContextualRelevancyMetric(
         threshold=0.7,
+        model="gpt-4.1",
         include_reason=True,
         verbose_mode=True
     )
