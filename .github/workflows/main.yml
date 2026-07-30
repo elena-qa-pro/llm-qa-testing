@@ -22,4 +22,6 @@ jobs:
           pip install pytest deepeval
 
       - name: Run RAG evaluation tests
-        run: pytest tests/test_rag_evaluation.py -v
+        env:
+         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+       run: pytest tests/test_rag_evaluation.py -v
