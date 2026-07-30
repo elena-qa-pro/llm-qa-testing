@@ -21,7 +21,7 @@ def test_return_policy_context():
 
 
 
-  def test_irrelevant_context():
+def test_irrelevant_context():
     test_case = LLMTestCase(
         input="What is your return policy?",
         actual_output="Customers can return shoes within 30 days for a full refund.",
