@@ -1,4 +1,5 @@
 # LLM QA Testing Portfolio
+![LLM QA Tests](https://github.com/elena-qa-pro/llm-qa-testing/actions/workflows/main.yml/badge.svg)
 
 QA portfolio project focused on testing LLM and RAG-based applications.
 
